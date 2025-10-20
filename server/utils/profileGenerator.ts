@@ -9,12 +9,13 @@ export function generateProfile(): Profile {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
   const username = faker.internet.username({ firstName, lastName });
+  const id = faker.string.uuid();
 
   // Use TestingBot Avatar Generator
-  const avatarUrl = `${config.public.AVATAR_API}/avatar/${username}.png`;
+  const avatarUrl = `${config.public.AVATAR_API}/free-online-tools/random-avatar/200?u=${id}`;
 
   return {
-    id: faker.string.uuid(),
+    id,
     name: `${firstName} ${lastName}`,
     email: faker.internet.email({ firstName, lastName }),
     avatarUrl,
