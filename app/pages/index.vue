@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { useProfilesApi } from '~/composables/useProfilesApi'
+
+// SEO Meta
+useSeoMeta({
+  title: 'Random Profiles Catalog - Discover Randomly Generated Person Profiles',
+  ogTitle: 'Random Profiles Catalog - Discover Randomly Generated Person Profiles',
+  description: 'Explore randomly generated person profiles with detailed information including contact details, addresses, and professional backgrounds.',
+  ogDescription: 'Explore randomly generated person profiles with detailed information including contact details, addresses, and professional backgrounds.',
+  ogImage: '/og-image.jpg',
+  twitterCard: 'summary_large_image',
+})
+
+// Fetch profiles for home page
+const { fetchProfiles } = useProfilesApi()
+const { data, pending, error, refresh } = await useLazyAsyncData('home-profiles', () => fetchProfiles(6))
+</script>
+
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
@@ -71,21 +89,3 @@
     </section>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useProfilesApi } from '~/composables/useProfilesApi'
-
-// SEO Meta
-useSeoMeta({
-  title: 'Random Profiles Catalog - Discover Randomly Generated Person Profiles',
-  ogTitle: 'Random Profiles Catalog - Discover Randomly Generated Person Profiles',
-  description: 'Explore randomly generated person profiles with detailed information including contact details, addresses, and professional backgrounds.',
-  ogDescription: 'Explore randomly generated person profiles with detailed information including contact details, addresses, and professional backgrounds.',
-  ogImage: '/og-image.jpg',
-  twitterCard: 'summary_large_image',
-})
-
-// Fetch profiles for home page
-const { fetchProfiles } = useProfilesApi()
-const { data, pending, error, refresh } = await useLazyAsyncData('home-profiles', () => fetchProfiles(6))
-</script>
