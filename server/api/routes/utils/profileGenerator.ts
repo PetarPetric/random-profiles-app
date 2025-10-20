@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import type { Profile } from "@/types/profile";
+import type { Profile } from "#shared/types/profile";
 
 /**
  * Generate a single random profile using Faker
