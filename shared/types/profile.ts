@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // Profile schema with 13 attributes
 export const ProfileSchema = z.object({
-  id: z.string().uuid(),
+  id: z.string(),
   name: z.string(),
   email: z.email(),
   avatarUrl: z.url(),
