@@ -35,3 +35,8 @@ This document tracks all AI prompts and commands used during the development of 
 - **Prompt**: "Build Default layout for the whole application with consistent and proper styling with Tailwind CSS"
 - **Tool**: Claude
 - **Output**: Layout Structure with retry button and ARIA alerts
+
+## Step 5: Profile Card Component
+- **Prompt**: "Build ProfileCard component for gallery display with hover effects, responsive design, accessibility features, and proper image handling using NuxtImg"
+- **Tool**: Claude
+- **Output**: Complete profile card with animations and accessibility
