@@ -1,6 +1,6 @@
-# Nuxt Minimal Starter
+# Random Profiles Catalog App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Nuxt 4 application that displays randomly generated person profiles with its own REST API.
 
 ## Setup
 
@@ -72,4 +72,17 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Tech Stack
+
+- Nuxt 4
+- Tailwind CSS
+- Faker.js
+- Zod
+- TypeScript
+
+## Features
+
+- Random profile generation
+- REST API (server layer)
+- Responsive design
+- Loading and error states
