@@ -3,7 +3,7 @@
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    
+
     <!-- Route Announcer for accessibility -->
     <NuxtRouteAnnouncer />
   </div>
