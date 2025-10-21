@@ -33,8 +33,8 @@ const { data, pending, refresh } = await useLazyAsyncDataWithError(
         <!-- Results Header -->
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-900 mb-4">All Profiles</h2>
-          <p class="text-lg text-gray-600">
-            Showing {{ data?.count || 0 }} randomly generated profiles
+          <p v-if="data?.count" class="text-lg text-gray-600">
+            Showing {{ data?.count }} randomly generated profiles
           </p>
         </div>
 
