@@ -26,25 +26,38 @@ A modern Nuxt 4 application that displays randomly generated person profiles wit
 
 ```
 app/
-├── components/          # Reusable Vue components
-│   ├── ProfileCard.vue
-│   ├── BaseCard.vue
-│   ├── ProfileDetails.vue
-│   ├── LoadingSpinner.vue
-│   └── ErrorMessage.vue
-├── composables/         # Vue composables
+├── app.vue             # Main app component
+├── error.vue          # Error page component
+├── assets/
+│   └── app.css       # Global styles
+├── components/        # Reusable Vue components
+│   ├── home/
+│   │   ├── CallToAction.vue
+│   │   └── HeroSection.vue
+│   ├── profile/
+│   │   ├── Card.vue
+│   │   └── Details.vue
+│   ├── search/
+│   │   └── HeaderSection.vue
+│   └── shared/
+│       ├── BaseCard.vue
+│       ├── ErrorMessageModal.vue
+│       └── LoadingSpinner.vue
+├── composables/       # Vue composables
+│   ├── useAsyncDataWithErrorHandling.ts
+│   ├── useErrorHandler.ts
 │   └── useProfilesApi.ts
-├── layouts/            # Layout components
+├── layouts/          # Layout components
 │   └── default.vue
-├── pages/              # File-based routing
-│   ├── index.vue       # Home page
-│   ├── search.vue      # Browse profiles
+├── pages/            # File-based routing
+│   ├── index.vue     # Home page
+│   ├── search.vue    # Browse profiles
 │   └── profiles/
-│       └── [id].vue    # Profile details
-└── app.vue             # Main app component
+│       └── [id].vue  # Profile details
+└── utils/           # Utility functions
 
 server/
-├── api/                # API routes
+├── api/             # API routes
 │   └── profiles/
 │       ├── index.ts    # GET /api/profiles
 │       └── [id].get.ts # GET /api/profiles/:id
@@ -53,7 +66,7 @@ server/
 
 shared/
 └── types/
-    └── profile.ts      # Zod schemas and TypeScript types
+    └── profile.ts   # TypeScript types
 ```
 
 ## API Endpoints
@@ -199,17 +212,21 @@ bun run preview
 
 ## Components
 
-### ProfileCard
-Reusable card component for displaying profile previews in galleries.
+### Home Components
+- **CallToAction**: Action buttons and prompts on the home page
+- **HeroSection**: Main banner and introduction section
 
-### ProfileDetails
-Comprehensive view component for displaying full profile information.
+### Profile Components
+- **Card**: Reusable card component for displaying profile previews
+- **Details**: Comprehensive view component for displaying full profile information
 
-### LoadingSpinner
-Accessible loading indicator with ARIA labels.
+### Search Components
+- **HeaderSection**: Search page header with controls and filters
 
-### ErrorMessage
-Error state component with retry functionality.
+### Shared Components
+- **BaseCard**: Base card component used as a foundation for other cards
+- **ErrorMessageModal**: Modal component for displaying error messages
+- **LoadingSpinner**: Accessible loading indicator with ARIA labels
 
 ## Accessibility Features
 
@@ -227,6 +244,17 @@ Error state component with retry functionality.
 - Twitter Card integration
 - Structured data
 - Canonical URLs
+
+## Composables
+
+### useAsyncDataWithErrorHandling
+Wrapper composable for Nuxt's useAsyncData with integrated error handling.
+
+### useErrorHandler
+Centralized error handling composable for consistent error management.
+
+### useProfilesApi
+API integration composable for fetching and managing profile data.
 
 ## Contributing
 
