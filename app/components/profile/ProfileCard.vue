@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Profile } from "#shared/types/profile";
-import BaseCard from "./BaseCard.vue";
+import BaseCard from "../shared/BaseCard.vue";
 
 interface Props {
   profile: Profile;
