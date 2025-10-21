@@ -28,18 +28,8 @@ export const useProfilesApi = () => {
     }
   }
 
-  const fetchSearchProfiles = async (): Promise<ProfilesResponse> => {
-    return fetchProfiles(10)
-  }
-
-  const fetchHomeProfiles = async (): Promise<ProfilesResponse> => {
-    return fetchProfiles(6)
-  }
-
   return {
     fetchProfiles,
     fetchProfile,
-    fetchSearchProfiles,
-    fetchHomeProfiles,
   }
 }
