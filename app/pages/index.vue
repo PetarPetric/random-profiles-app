@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import HomeCallToActionSection from "~/components/home/CallToAction.vue";
-import HomeHeroSection from "~/components/home/HeroSection.vue";
 import { useProfilesApi } from "~/composables/useProfilesApi";
 import { useLazyAsyncDataWithError } from "#imports";
 

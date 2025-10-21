@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Profile } from "#shared/types/profile";
-import BaseCard from "../shared/BaseCard.vue";
 
 interface Props {
   profile: Profile;
@@ -10,7 +9,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <BaseCard
+  <SharedBaseCard
     class="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
   >
     <NuxtLink
@@ -80,5 +79,5 @@ defineProps<Props>();
         </p>
       </div>
     </NuxtLink>
-  </BaseCard>
+  </SharedBaseCard>
 </template>

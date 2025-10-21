@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ProfileDetails from "~/components/Profile/ProfileDetails.vue";
 import { useProfilesApi } from "~/composables/useProfilesApi";
 import { useLazyAsyncDataWithError } from "#imports";
 
@@ -58,9 +57,9 @@ watchEffect(() => {
 
       <!-- Profile Details -->
       <div v-else-if="data">
-        <BaseCard class="mx-auto">
+        <SharedBaseCard class="mx-auto">
           <ProfileDetails :profile="data.data" />
-        </BaseCard>
+        </SharedBaseCard>
       </div>
     </div>
   </div>
