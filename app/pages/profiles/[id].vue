@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import ProfileDetails from "~/components/Profile/ProfileDetails.vue";
 import { useProfilesApi } from "~/composables/useProfilesApi";
-import ProfileDetails from "~/components/ProfileDetails.vue";
+import { useLazyAsyncDataWithError } from "#imports";
 
 // Get the profile ID from the route
 const route = useRoute();
@@ -26,7 +27,7 @@ useSeoMeta({
 
 // Fetch the specific profile
 const { fetchProfile } = useProfilesApi();
-const { data, pending, error, refresh } = await useLazyAsyncData(
+const { data, pending } = await useLazyAsyncDataWithError(
   `profile-${profileId}`,
   () => fetchProfile(profileId)
 );
@@ -53,16 +54,6 @@ watchEffect(() => {
       <!-- Loading State -->
       <div v-if="pending" class="flex justify-center py-12">
         <LoadingSpinner />
-      </div>
-
-      <!-- Error State -->
-      <div v-else-if="error" class="max-w-md mx-auto">
-        <ErrorMessage
-          title="Profile not found"
-          :message="error.message"
-          :show-retry="true"
-          @retry="refresh()"
-        />
       </div>
 
       <!-- Profile Details -->
