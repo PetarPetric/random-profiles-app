@@ -1,45 +1,50 @@
 <script setup lang="ts">
-import { useProfilesApi } from '~/composables/useProfilesApi'
+import { useProfilesApi } from "~/composables/useProfilesApi";
+import ProfileDetails from "~/components/ProfileDetails.vue";
 
 // Get the profile ID from the route
-const route = useRoute()
-const profileId = route.params.id as string
+const route = useRoute();
+const profileId = route.params.id as string;
 
 if (!profileId) {
   throw createError({
     statusCode: 400,
-    statusMessage: 'Profile ID is required'
-  })
+    statusMessage: "Profile ID is required",
+  });
 }
 
 // SEO Meta - will be updated when data loads
 useSeoMeta({
-  title: 'Profile Details - Random Profiles Catalog',
-  ogTitle: 'Profile Details - Random Profiles Catalog',
-  description: 'View detailed information about a randomly generated profile.',
-  ogDescription: 'View detailed information about a randomly generated profile.',
-  ogImage: '/og-image.jpg',
-  twitterCard: 'summary_large_image',
-})
+  title: "Profile Details - Random Profiles Catalog",
+  ogTitle: "Profile Details - Random Profiles Catalog",
+  description: "View detailed information about a randomly generated profile.",
+  ogDescription:
+    "View detailed information about a randomly generated profile.",
+  ogImage: "/og-image.jpg",
+  twitterCard: "summary_large_image",
+});
 
 // Fetch the specific profile
-const { fetchProfile } = useProfilesApi()
-const { data, pending, error, refresh } = await useLazyAsyncData(`profile-${profileId}`, () => fetchProfile(profileId))
+const { fetchProfile } = useProfilesApi();
+const { data, pending, error, refresh } = await useLazyAsyncData(
+  `profile-${profileId}`,
+  () => fetchProfile(profileId)
+);
 
 // Update SEO meta when data is available
 watchEffect(() => {
   if (data.value) {
-    const profile = data.value.data
+    const profile = data.value.data;
     useSeoMeta({
       title: `${profile.name} - Profile Details | Random Profiles Catalog`,
       ogTitle: `${profile.name} - Profile Details | Random Profiles Catalog`,
       description: `View detailed information about ${profile.name}, a ${profile.jobTitle} at ${profile.company}.`,
       ogDescription: `View detailed information about ${profile.name}, a ${profile.jobTitle} at ${profile.company}.`,
       ogImage: profile.avatarUrl,
-      twitterCard: 'summary_large_image',
-    })
+      twitterCard: "summary_large_image",
+    });
   }
-})
+});
 </script>
 
 <template>
@@ -62,7 +67,9 @@ watchEffect(() => {
 
       <!-- Profile Details -->
       <div v-else-if="data">
-        <ProfileDetailView :profile="data.data" />
+        <BaseCard class="mx-auto">
+          <ProfileDetails :profile="data.data" />
+        </BaseCard>
       </div>
     </div>
   </div>

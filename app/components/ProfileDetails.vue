@@ -18,7 +18,7 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
     <!-- Header Section -->
     <div class="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-12 text-white">
       <div class="flex flex-col md:flex-row items-center">

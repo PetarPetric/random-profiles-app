@@ -28,7 +28,8 @@ A modern Nuxt 4 application that displays randomly generated person profiles wit
 app/
 ├── components/          # Reusable Vue components
 │   ├── ProfileCard.vue
-│   ├── ProfileDetailView.vue
+│   ├── BaseCard.vue
+│   ├── ProfileDetails.vue
 │   ├── LoadingSpinner.vue
 │   └── ErrorMessage.vue
 ├── composables/         # Vue composables
@@ -201,7 +202,7 @@ bun run preview
 ### ProfileCard
 Reusable card component for displaying profile previews in galleries.
 
-### ProfileDetailView
+### ProfileDetails
 Comprehensive view component for displaying full profile information.
 
 ### LoadingSpinner
