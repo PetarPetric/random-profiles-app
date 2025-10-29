@@ -41,7 +41,7 @@ const { data, pending } = await useLazyAsyncDataWithError("home-profiles", () =>
         </div>
         <!-- Loading State -->
         <div v-if="pending" class="flex justify-center py-12">
-          <LoadingSpinner />
+          <SharedLoadingSpinner />
         </div>
 
         <!-- Profiles Grid -->
@@ -59,6 +59,6 @@ const { data, pending } = await useLazyAsyncDataWithError("home-profiles", () =>
     </section>
 
     <!-- Call to Action -->
-    <HomeCallToActionSection />
+    <HomeCallToAction />
   </div>
 </template>

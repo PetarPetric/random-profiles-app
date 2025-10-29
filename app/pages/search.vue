@@ -40,7 +40,7 @@ const { data, pending, refresh } = await useLazyAsyncDataWithError(
 
         <!-- Loading State -->
         <div v-if="pending" class="flex justify-center py-12">
-          <LoadingSpinner />
+          <SharedLoadingSpinner />
         </div>
 
         <!-- Profiles Grid -->
